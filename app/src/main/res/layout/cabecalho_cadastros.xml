@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primeiro item das listas de cadastros: busca e total. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/etBusca"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_input_rounded"
+        android:drawableStart="@drawable/ic_busca"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/texto_dica"
+        android:imeOptions="actionSearch"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="@color/texto"
+        android:textColorHint="@color/texto_dica"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvTotal"
+        style="@style/TituloCartao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/tvEstado"
+        style="@style/Rotulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="32dp"
+        android:visibility="gone" />
+</LinearLayout>

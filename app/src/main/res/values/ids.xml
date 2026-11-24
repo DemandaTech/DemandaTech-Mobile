@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nav_visao_geral" type="id" />
+    <item name="nav_demandas" type="id" />
+    <item name="nav_estornos" type="id" />
+    <item name="nav_cadastros" type="id" />
+    <item name="nav_relatorios" type="id" />
+</resources>
