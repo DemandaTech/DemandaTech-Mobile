@@ -1,6 +1,8 @@
 package edu.udesc.demandatech;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -44,6 +47,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+    // A partir do Android 17, acessar o backend na rede local exige esta permissão.
+    private static final String REDE_LOCAL = "android.permission.ACCESS_LOCAL_NETWORK";
+
+    private final ActivityResultLauncher<String> pedirRedeLocal = registerForActivityResult(
+            new ActivityResultContracts.RequestPermission(), concedida -> {
+                if (!concedida) {
+                    tvErro.setText("Sem acesso à rede local o app não consegue falar com o servidor.");
+                    tvErro.setVisibility(View.VISIBLE);
+                }
+            });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
                 criarConta.launch(new Intent(this, CriarContaActivity.class)));
         findViewById(R.id.tvEsqueciSenha).setOnClickListener(v -> Toast.makeText(this,
                 "Procure o administrador para redefinir sua senha.", Toast.LENGTH_LONG).show());
+
+        if (Build.VERSION.SDK_INT >= 37
+                && ContextCompat.checkSelfPermission(this, REDE_LOCAL) != PackageManager.PERMISSION_GRANTED) {
+            pedirRedeLocal.launch(REDE_LOCAL);
+        }
     }
 
     private void entrar() {

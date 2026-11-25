@@ -16,6 +16,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val apiUrl = (project.findProperty("apiUrl") as String?) ?: "http://10.0.2.2:8080"
+        buildConfigField("String", "API_URL", "\"$apiUrl\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {

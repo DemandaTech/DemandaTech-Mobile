@@ -46,6 +46,13 @@ public class Sessao {
         return prefs.getString(TOKEN, null);
     }
 
+    // O backend renova o token a cada resposta; guardar o novo evita expirar no meio do uso.
+    public void atualizarToken(String token) {
+        if (estaLogado()) {
+            prefs.edit().putString(TOKEN, token).apply();
+        }
+    }
+
     public Usuario getUsuario() {
         return new Usuario(
                 prefs.getString(MATRICULA, ""),
