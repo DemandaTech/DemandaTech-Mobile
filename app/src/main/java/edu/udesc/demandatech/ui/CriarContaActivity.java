@@ -24,13 +24,9 @@ import edu.udesc.demandatech.data.Resultado;
 import edu.udesc.demandatech.model.Departamento;
 import edu.udesc.demandatech.model.Usuario;
 
-// Cadastro feito pela própria pessoa, a partir da tela de login.
 public class CriarContaActivity extends AppCompatActivity {
-
     public static final String MATRICULA = "matricula";
-
     private AuthRepository auth;
-
     private TextInputLayout campoNome;
     private TextInputLayout campoEmail;
     private TextInputLayout campoDepartamento;
@@ -115,7 +111,6 @@ public class CriarContaActivity extends AppCompatActivity {
         });
     }
 
-    // O login é feito pela matrícula, então ela precisa ficar clara antes de voltar.
     private void mostrarMatricula(String matricula) {
         new MaterialAlertDialogBuilder(this)
                 .setTitle("Conta criada")
@@ -128,7 +123,6 @@ public class CriarContaActivity extends AppCompatActivity {
                 .show();
     }
 
-    // Mostra ou limpa a mensagem de erro do campo e devolve se ele está válido.
     private boolean exigir(TextInputLayout campo, boolean valido, String mensagem) {
         campo.setError(valido ? null : mensagem);
         return valido;

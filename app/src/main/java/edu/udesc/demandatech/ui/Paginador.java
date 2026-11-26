@@ -7,15 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import edu.udesc.demandatech.data.Resultado;
 import edu.udesc.demandatech.model.Pagina;
 
-// Paginação pelo scroll: pede a próxima página quando a lista chega perto do fim.
 public class Paginador<T> {
 
-    // De onde vêm as páginas, normalmente uma chamada ao repositório.
     public interface Fonte<T> {
         void buscar(int pagina, Resultado<Pagina<T>> resultado);
     }
 
-    // Avisos para a tela atualizar total, estado vazio e mensagem de erro.
     public interface Tela<T> {
         void aoComecar();
 
@@ -24,7 +21,6 @@ public class Paginador<T> {
         void aoFalhar(String mensagem);
     }
 
-    // Quantos itens antes do fim da lista a próxima página é pedida.
     private static final int ANTECEDENCIA = 3;
 
     private final RecyclerView lista;
@@ -36,7 +32,6 @@ public class Paginador<T> {
     private int pagina;
     private boolean temMais;
     private boolean carregando;
-    // Identifica o pedido mais recente, para ignorar respostas de pedidos antigos.
     private int pedidoAtual;
 
     public Paginador(RecyclerView lista, ListaPaginadaAdapter<T> adapter, Fonte<T> fonte,
@@ -46,7 +41,6 @@ public class Paginador<T> {
         this.fonte = fonte;
         this.tela = tela;
 
-        // A tela define o organizador antes, porque ele é exigido ao inflar o cabeçalho.
         organizador = (LinearLayoutManager) lista.getLayoutManager();
         lista.setAdapter(adapter);
         lista.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -59,7 +53,6 @@ public class Paginador<T> {
         });
     }
 
-    // Volta para a primeira página, por exemplo ao mudar a busca ou os filtros.
     public void recarregar() {
         pagina = 0;
         temMais = true;
@@ -85,7 +78,6 @@ public class Paginador<T> {
                 terminar();
                 adapter.adicionar(dados.getItens());
                 tela.aoCarregar(dados);
-                // Se a página não encheu a tela, não haverá scroll: busca a seguinte direto.
                 carregarSeChegouAoFim();
             }
 
@@ -99,7 +91,6 @@ public class Paginador<T> {
         });
     }
 
-    // Chamado quando a tela é destruída, para descartar respostas que ainda chegarem.
     public void encerrar() {
         pedidoAtual++;
     }
@@ -109,7 +100,6 @@ public class Paginador<T> {
         adapter.mostrarCarregando(false);
     }
 
-    // O pedido sai no próximo ciclo: a lista não aceita mudanças durante o scroll.
     private void carregarSeChegouAoFim() {
         if (carregando || !temMais) {
             return;

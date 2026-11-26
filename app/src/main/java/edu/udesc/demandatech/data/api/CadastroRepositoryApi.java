@@ -56,7 +56,6 @@ public class CadastroRepositoryApi implements CadastroRepository {
                 resposta -> Conversor.funcionario(new JSONObject(resposta)), resultado);
     }
 
-    // As telas trabalham com o nome do departamento; o backend precisa do id.
     @Override
     public void salvarFuncionario(String matricula, String nome, String email, Perfil perfil,
                                   String departamento, String senha, Resultado<Usuario> resultado) {

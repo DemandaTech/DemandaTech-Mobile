@@ -8,11 +8,9 @@ import edu.udesc.demandatech.data.api.DemandaRepositoryApi;
 import edu.udesc.demandatech.data.api.EstornoRepositoryApi;
 import edu.udesc.demandatech.data.api.RelatorioRepositoryApi;
 
-// Ponto único de troca: as implementações em data/demo continuam disponíveis para usar sem backend.
 public final class Repositorios {
 
-    private Repositorios() {
-    }
+    private Repositorios() {}
 
     public static AuthRepository auth() {
         return new AuthRepositoryApi();

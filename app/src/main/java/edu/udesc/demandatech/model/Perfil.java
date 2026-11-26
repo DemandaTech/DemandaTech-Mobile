@@ -25,7 +25,6 @@ public enum Perfil {
         return null;
     }
 
-    // Administrador e Gerente têm Visão geral e Cadastros.
     public boolean isGestor() {
         return this == ADMINISTRADOR || this == GERENTE;
     }

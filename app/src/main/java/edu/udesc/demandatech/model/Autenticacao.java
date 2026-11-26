@@ -1,6 +1,5 @@
 package edu.udesc.demandatech.model;
 
-// Resposta do login: quem entrou e o token usado nas próximas chamadas.
 public class Autenticacao {
 
     private final Usuario usuario;

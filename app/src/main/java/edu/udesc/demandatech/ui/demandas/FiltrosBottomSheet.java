@@ -23,12 +23,10 @@ import edu.udesc.demandatech.model.Prioridade;
 import edu.udesc.demandatech.model.Status;
 import edu.udesc.demandatech.model.TipoDemanda;
 
-// Painel inferior com os filtros da lista de demandas.
 public class FiltrosBottomSheet extends BottomSheetDialogFragment {
 
     public static final String RESULTADO = "filtros_aplicados";
     public static final String FILTRO = "filtro";
-
     private FiltroDemanda atual;
     private ChipGroup grupoStatus;
     private ChipGroup grupoPrioridade;
@@ -86,9 +84,7 @@ public class FiltrosBottomSheet extends BottomSheetDialogFragment {
             }
 
             @Override
-            public void erro(String mensagem) {
-                // Sem a lista de tipos, o painel continua útil com "Todos".
-            }
+            public void erro(String mensagem) { }
         });
     }
 
@@ -100,7 +96,6 @@ public class FiltrosBottomSheet extends BottomSheetDialogFragment {
         devolver(novo);
     }
 
-    // Entrega o filtro para a lista, preservando o texto da busca.
     private void devolver(FiltroDemanda novo) {
         novo.texto = atual.texto;
         Bundle dados = new Bundle();

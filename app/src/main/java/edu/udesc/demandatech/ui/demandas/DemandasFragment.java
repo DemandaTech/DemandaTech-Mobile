@@ -33,12 +33,9 @@ import edu.udesc.demandatech.model.ResumoDemandas;
 import edu.udesc.demandatech.model.Usuario;
 import edu.udesc.demandatech.ui.Paginador;
 
-// Lista de demandas com busca, filtros e paginação pelo scroll.
-// Busca e filtros são apenas enviados ao repositório: quem filtra é o backend.
 public class DemandasFragment extends Fragment implements Paginador.Tela<Demanda> {
 
     private static final String FILTRO = "filtro";
-
     private DemandaRepository repositorio;
     private Paginador<Demanda> paginador;
     private FiltroDemanda filtro = new FiltroDemanda();
@@ -49,7 +46,6 @@ public class DemandasFragment extends Fragment implements Paginador.Tela<Demanda
     private TextView tvEstado;
     private MaterialButton btnFiltros;
 
-    // Detalhe e formulário avisam com RESULT_OK quando algo mudou.
     private final ActivityResultLauncher<Intent> telaComRetorno = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(), retorno -> {
                 if (retorno.getResultCode() == Activity.RESULT_OK) {
@@ -104,7 +100,6 @@ public class DemandasFragment extends Fragment implements Paginador.Tela<Demanda
         estado.putSerializable(FILTRO, filtro);
     }
 
-    // Perfis sem a aba Visão geral veem um resumo no topo da lista.
     private void configurarResumo() {
         Usuario usuario = new Sessao(requireContext()).getUsuario();
         mostraResumo = !usuario.getPerfil().isGestor();
@@ -141,7 +136,6 @@ public class DemandasFragment extends Fragment implements Paginador.Tela<Demanda
                 });
     }
 
-    // Volta para a primeira página, por exemplo ao mudar a busca ou os filtros.
     private void recarregar() {
         int ativos = filtro.quantidadeAtivos();
         btnFiltros.setText(ativos == 0 ? "Filtros" : "Filtros (" + ativos + ")");
@@ -188,7 +182,6 @@ public class DemandasFragment extends Fragment implements Paginador.Tela<Demanda
 
             @Override
             public void erro(String mensagem) {
-                // O resumo é complementar: a lista já informa a falha.
             }
         });
     }

@@ -5,7 +5,6 @@ import android.widget.TextView;
 
 import edu.udesc.demandatech.R;
 
-// Preenche os cartões de indicador (layout view_indicador).
 public final class Indicadores {
 
     private Indicadores() {

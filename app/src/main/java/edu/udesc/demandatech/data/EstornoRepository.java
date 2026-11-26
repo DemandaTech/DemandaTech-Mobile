@@ -5,7 +5,6 @@ import java.util.List;
 import edu.udesc.demandatech.model.Estorno;
 import edu.udesc.demandatech.model.Pagina;
 
-// O backend devolve apenas os estornos que o perfil logado pode ver.
 public interface EstornoRepository {
 
     void listar(String busca, int pagina, Resultado<Pagina<Estorno>> resultado);

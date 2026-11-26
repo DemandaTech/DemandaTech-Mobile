@@ -3,7 +3,6 @@ package edu.udesc.demandatech.model;
 import java.util.Locale;
 
 public class Usuario implements ItemCadastro {
-
     private final String matricula;
     private String nome;
     private String email;
@@ -67,7 +66,6 @@ public class Usuario implements ItemCadastro {
         return nome.trim().split(" ")[0];
     }
 
-    // Primeira letra do primeiro e do último nome, como "LA" para Lucas Arins.
     public String getIniciais() {
         String[] partes = nome.trim().split(" ");
         String iniciais = partes[0].substring(0, 1);
@@ -92,7 +90,6 @@ public class Usuario implements ItemCadastro {
         return perfil.getRotulo();
     }
 
-    // Texto exibido nas listas de seleção.
     @Override
     public String toString() {
         return nome + " · " + matricula;

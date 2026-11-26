@@ -1,6 +1,5 @@
 package edu.udesc.demandatech.model;
 
-// Mesmos valores do enum Prioridade do backend.
 public enum Prioridade {
     BAIXA("Baixa"),
     MEDIA("Média"),

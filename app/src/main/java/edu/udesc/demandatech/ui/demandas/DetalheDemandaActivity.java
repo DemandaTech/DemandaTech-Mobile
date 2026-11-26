@@ -65,7 +65,6 @@ public class DetalheDemandaActivity extends AppCompatActivity {
         });
     }
 
-    // Recarrega também ao voltar da edição ou do registro de estorno.
     @Override
     protected void onResume() {
         super.onResume();
@@ -114,7 +113,6 @@ public class DetalheDemandaActivity extends AppCompatActivity {
         texto(R.id.tvJustificativa, dados.getJustificativa());
         visivel(R.id.cartaoJustificativa, !TextUtils.isEmpty(dados.getJustificativa()));
 
-        // O backend valida a permissão; aqui só mostramos as ações de quem pode usá-las.
         visivel(R.id.btnStatus, dados.podeAlterarStatus(usuario));
         visivel(R.id.btnEditar, dados.podeEditar(usuario));
         visivel(R.id.btnExcluir, dados.podeExcluir(usuario));
@@ -122,7 +120,6 @@ public class DetalheDemandaActivity extends AppCompatActivity {
         findViewById(R.id.conteudo).setVisibility(View.VISIBLE);
     }
 
-    // Mostra só os status seguintes ao atual, porque o status não regride.
     private void abrirStatus() {
         View formulario = getLayoutInflater().inflate(R.layout.dialog_responder, null);
         ChipGroup grupoStatus = formulario.findViewById(R.id.grupoStatus);
@@ -140,7 +137,6 @@ public class DetalheDemandaActivity extends AppCompatActivity {
             grupoStatus.addView(chip);
         }
 
-        // A justificativa é opcional e só aparece ao resolver a demanda.
         grupoStatus.setOnCheckedStateChangeListener((grupo, marcados) ->
                 campoJustificativa.setVisibility(
                         statusMarcado(grupo) == Status.RESOLVIDA ? View.VISIBLE : View.GONE));
@@ -204,7 +200,6 @@ public class DetalheDemandaActivity extends AppCompatActivity {
         Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();
     }
 
-    // Atualiza a tela sempre que a API devolve a demanda.
     private class Atualizacao implements Resultado<Demanda> {
 
         @Override

@@ -3,7 +3,6 @@ package edu.udesc.demandatech.model;
 import java.util.Locale;
 
 public class TipoDemanda implements ItemCadastro {
-
     private final long id;
     private String descricao;
     private Departamento departamento;
@@ -49,7 +48,6 @@ public class TipoDemanda implements ItemCadastro {
         return null;
     }
 
-    // Texto exibido nas listas de seleção.
     @Override
     public String toString() {
         return descricao;

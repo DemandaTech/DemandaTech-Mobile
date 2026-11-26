@@ -22,7 +22,6 @@ import edu.udesc.demandatech.BuildConfig;
 import edu.udesc.demandatech.data.Resultado;
 import edu.udesc.demandatech.data.Sessao;
 
-// Faz as chamadas HTTP fora da thread principal e entrega o resultado nela.
 public class ApiCliente {
 
     private static final ExecutorService EXECUTOR = Executors.newFixedThreadPool(4);

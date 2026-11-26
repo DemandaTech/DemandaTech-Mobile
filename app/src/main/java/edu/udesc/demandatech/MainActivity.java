@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvErro;
     private MaterialButton btnEntrar;
 
-    // Ao voltar da criação de conta, a matrícula gerada já vem preenchida.
     private final ActivityResultLauncher<Intent> criarConta = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(), retorno -> {
                 if (retorno.getResultCode() == RESULT_OK && retorno.getData() != null) {
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-    // A partir do Android 17, acessar o backend na rede local exige esta permissão.
     private static final String REDE_LOCAL = "android.permission.ACCESS_LOCAL_NETWORK";
 
     private final ActivityResultLauncher<String> pedirRedeLocal = registerForActivityResult(

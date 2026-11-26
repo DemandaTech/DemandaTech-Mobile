@@ -30,7 +30,6 @@ import edu.udesc.demandatech.model.TipoDemanda;
 import edu.udesc.demandatech.model.Usuario;
 import edu.udesc.demandatech.ui.Telas;
 
-// Formulário usado para criar uma demanda e para editar uma existente.
 public class FormularioDemandaActivity extends AppCompatActivity {
 
     private static final String ID = "id";
@@ -228,7 +227,6 @@ public class FormularioDemandaActivity extends AppCompatActivity {
         return null;
     }
 
-    // Mostra ou limpa a mensagem de erro do campo e devolve se ele está válido.
     private boolean exigir(TextInputLayout campo, boolean valido, String mensagem) {
         campo.setError(valido ? null : mensagem);
         return valido;

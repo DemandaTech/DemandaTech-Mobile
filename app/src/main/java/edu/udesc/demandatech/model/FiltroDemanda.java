@@ -2,9 +2,7 @@ package edu.udesc.demandatech.model;
 
 import java.io.Serializable;
 
-// Campos nulos significam "todos".
 public class FiltroDemanda implements Serializable {
-
     public String texto = "";
     public Status status;
     public Prioridade prioridade;

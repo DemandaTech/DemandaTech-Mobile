@@ -34,9 +34,7 @@ import edu.udesc.demandatech.model.TipoDemanda;
 import edu.udesc.demandatech.model.Usuario;
 import edu.udesc.demandatech.ui.Paginador;
 
-// Cadastros: uma lista que troca de conteúdo conforme a aba escolhida.
 public class CadastrosFragment extends Fragment implements Paginador.Tela<ItemCadastro> {
-
     private static final String ABA = "aba";
     private static final String BUSCA = "busca";
 
@@ -50,7 +48,6 @@ public class CadastrosFragment extends Fragment implements Paginador.Tela<ItemCa
     private TextView tvEstado;
     private ExtendedFloatingActionButton btnNovo;
 
-    // Os formulários avisam com RESULT_OK quando algo mudou.
     private final ActivityResultLauncher<Intent> telaComRetorno = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(), retorno -> {
                 if (retorno.getResultCode() == Activity.RESULT_OK) {
@@ -105,7 +102,6 @@ public class CadastrosFragment extends Fragment implements Paginador.Tela<ItemCa
         estado.putString(BUSCA, busca);
     }
 
-    // O Gerente administra só os funcionários do seu departamento, então não vê as abas.
     private void configurarAbas(TabLayout abas) {
         Usuario usuario = new Sessao(requireContext()).getUsuario();
         if (!usuario.isAdministrador()) {
@@ -147,7 +143,6 @@ public class CadastrosFragment extends Fragment implements Paginador.Tela<ItemCa
         });
     }
 
-    // Ajusta os textos da tela ao cadastro atual e carrega a lista.
     private void mostrarCadastro() {
         etBusca.setHint(cadastro.getDicaBusca());
         btnNovo.setText(cadastro.getAcaoNovo());

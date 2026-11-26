@@ -26,7 +26,6 @@ import edu.udesc.demandatech.ui.estornos.EstornosFragment;
 import edu.udesc.demandatech.ui.relatorios.RelatoriosFragment;
 import edu.udesc.demandatech.ui.relatorios.VisaoGeralFragment;
 
-// Tela principal: barra superior, conteúdo da aba e barra inferior montada conforme o perfil.
 public class PrincipalActivity extends AppCompatActivity {
 
     private static final String TITULO = "titulo";
@@ -74,7 +73,6 @@ public class PrincipalActivity extends AppCompatActivity {
         }
     }
 
-    // O backend é quem garante o acesso; aqui só escondemos o que o perfil não usa.
     private void montarMenu(Perfil perfil) {
         Menu menu = navegacao.getMenu();
         if (perfil.isGestor()) {
@@ -103,7 +101,6 @@ public class PrincipalActivity extends AppCompatActivity {
                 .commit();
     }
 
-    // Usado pela Visão geral em "Ver todas as demandas".
     public void abrirDemandas() {
         navegacao.setSelectedItemId(R.id.nav_demandas);
     }

@@ -30,17 +30,12 @@ import edu.udesc.demandatech.model.Perfil;
 import edu.udesc.demandatech.model.Usuario;
 import edu.udesc.demandatech.ui.Telas;
 
-// Formulário usado para cadastrar um funcionário e para editar um existente.
 public class FuncionarioActivity extends AppCompatActivity {
-
     private static final String MATRICULA = "matricula";
-
     private CadastroRepository repositorio;
     private Usuario logado;
-    // Nula quando o formulário é de um funcionário novo.
     private String matricula;
     private Perfil perfil = Perfil.USUARIO;
-
     private TextInputLayout campoNome;
     private TextInputLayout campoEmail;
     private TextInputLayout campoDepartamento;
@@ -99,7 +94,6 @@ public class FuncionarioActivity extends AppCompatActivity {
         return matricula != null;
     }
 
-    // Só o Administrador escolhe o perfil; o Gerente cadastra usuários comuns.
     private void configurarPerfil() {
         List<String> perfis = new ArrayList<>();
         for (Perfil opcao : Perfil.values()) {
@@ -114,7 +108,6 @@ public class FuncionarioActivity extends AppCompatActivity {
         }
     }
 
-    // O Gerente cadastra apenas no próprio departamento.
     private void configurarDepartamento() {
         if (!logado.isAdministrador()) {
             acDepartamento.setText(logado.getDepartamento(), false);
@@ -160,7 +153,6 @@ public class FuncionarioActivity extends AppCompatActivity {
         perfil = funcionario.getPerfil();
         acPerfil.setText(perfil.getRotulo(), false);
 
-        // Ninguém remove o próprio cadastro.
         boolean ehOProprio = funcionario.getMatricula().equals(logado.getMatricula());
         findViewById(R.id.btnRemover).setVisibility(ehOProprio ? View.GONE : View.VISIBLE);
     }
@@ -225,13 +217,11 @@ public class FuncionarioActivity extends AppCompatActivity {
         });
     }
 
-    // Fecha avisando a lista de que algo mudou.
     private void concluir() {
         setResult(RESULT_OK);
         finish();
     }
 
-    // Mostra ou limpa a mensagem de erro do campo e devolve se ele está válido.
     private boolean exigir(TextInputLayout campo, boolean valido, String mensagem) {
         campo.setError(valido ? null : mensagem);
         return valido;

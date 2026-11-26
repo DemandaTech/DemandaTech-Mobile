@@ -11,7 +11,6 @@ import edu.udesc.demandatech.model.TipoDemanda;
 import edu.udesc.demandatech.model.Usuario;
 
 // Funcionários, departamentos e tipos de demanda.
-// Nos métodos "salvar", matrícula nula ou id zero significam um registro novo.
 public interface CadastroRepository {
 
     void listar(Cadastro cadastro, String busca, int pagina,
@@ -19,7 +18,7 @@ public interface CadastroRepository {
 
     void buscarFuncionario(String matricula, Resultado<Usuario> resultado);
 
-    // Na edição, senha vazia mantém a senha atual.
+    // Senha vazia mantém a senha atual.
     void salvarFuncionario(String matricula, String nome, String email, Perfil perfil,
                            String departamento, String senha, Resultado<Usuario> resultado);
 

@@ -10,7 +10,6 @@ import edu.udesc.demandatech.R;
 import edu.udesc.demandatech.model.Prioridade;
 import edu.udesc.demandatech.model.Status;
 
-// Pinta as etiquetas coloridas de status, prioridade e tipo.
 public final class Etiquetas {
 
     private Etiquetas() {

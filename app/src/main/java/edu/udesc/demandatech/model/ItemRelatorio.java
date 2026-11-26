@@ -1,8 +1,6 @@
 package edu.udesc.demandatech.model;
 
-// Uma linha de relatório: nome, valor da barra e um texto complementar opcional.
 public class ItemRelatorio {
-
     private final String nome;
     private final int valor;
     private final String detalhe;

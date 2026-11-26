@@ -12,14 +12,11 @@ import androidx.core.view.WindowInsetsControllerCompat;
 
 import edu.udesc.demandatech.R;
 
-// Configuração de janela comum a todas as telas.
 public final class Telas {
 
     private Telas() {
     }
 
-    // Define o layout e afasta o conteúdo das barras do sistema e do teclado.
-    // O layout precisa ter uma view com id "raiz".
     public static void abrir(AppCompatActivity activity, int layout) {
         Window janela = activity.getWindow();
         WindowCompat.enableEdgeToEdge(janela);

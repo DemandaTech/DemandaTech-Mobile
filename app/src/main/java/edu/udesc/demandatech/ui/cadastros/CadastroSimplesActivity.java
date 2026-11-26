@@ -27,10 +27,7 @@ import edu.udesc.demandatech.model.TipoDemanda;
 import edu.udesc.demandatech.model.Usuario;
 import edu.udesc.demandatech.ui.Telas;
 
-// Formulário de departamento e de tipo de demanda. Os dois têm uma descrição e uma seleção:
-// o gerente (opcional) no departamento e o departamento responsável (obrigatório) no tipo.
 public class CadastroSimplesActivity extends AppCompatActivity {
-
     private static final String CADASTRO = "cadastro";
     private static final String ID = "id";
     private static final long NOVO = 0;
@@ -38,7 +35,6 @@ public class CadastroSimplesActivity extends AppCompatActivity {
     private CadastroRepository repositorio;
     private boolean ehDepartamento;
     private long id;
-    // Gerente ou departamento escolhido na seleção.
     private Object opcao;
 
     private TextInputLayout campoDescricao;
@@ -175,7 +171,6 @@ public class CadastroSimplesActivity extends AppCompatActivity {
         finish();
     }
 
-    // Mostra ou limpa a mensagem de erro do campo e devolve se ele está válido.
     private boolean exigir(TextInputLayout campo, boolean valido, String mensagem) {
         campo.setError(valido ? null : mensagem);
         return valido;
@@ -185,7 +180,6 @@ public class CadastroSimplesActivity extends AppCompatActivity {
         Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();
     }
 
-    // Preenche a seleção com os funcionários ou departamentos recebidos.
     private class Opcoes<T> implements Resultado<List<T>> {
 
         @Override
@@ -200,7 +194,6 @@ public class CadastroSimplesActivity extends AppCompatActivity {
         }
     }
 
-    // Depois de salvar ou remover: fecha avisando a lista de que algo mudou.
     private class Conclusao<T> implements Resultado<T> {
 
         @Override

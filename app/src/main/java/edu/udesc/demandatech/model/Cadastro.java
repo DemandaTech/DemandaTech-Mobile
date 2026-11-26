@@ -1,6 +1,5 @@
 package edu.udesc.demandatech.model;
 
-// As três listas da tela de Cadastros.
 public enum Cadastro {
     FUNCIONARIOS("Funcionários", "Novo funcionário", "Buscar por matrícula ou nome"),
     DEPARTAMENTOS("Departamentos", "Novo departamento", "Buscar por ID ou descrição"),

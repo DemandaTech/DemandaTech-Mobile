@@ -23,7 +23,6 @@ import edu.udesc.demandatech.model.ItemRelatorio;
 import edu.udesc.demandatech.model.Relatorios;
 import edu.udesc.demandatech.ui.Indicadores;
 
-// Relatórios do Administrador: indicadores e três seções que abrem ao tocar no título.
 public class RelatoriosFragment extends Fragment {
 
     private static final int SEM_LIMITE = Integer.MAX_VALUE;
@@ -118,7 +117,6 @@ public class RelatoriosFragment extends Fragment {
         return raiz.findViewById(secao).findViewById(R.id.corpoSecao);
     }
 
-    // Acrescenta a posição ao nome, como "01 · Ana Souza".
     private List<ItemRelatorio> comPosicao(List<ItemRelatorio> itens) {
         List<ItemRelatorio> numerados = new ArrayList<>();
         for (int indice = 0; indice < itens.size(); indice++) {

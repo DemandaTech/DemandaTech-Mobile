@@ -50,7 +50,6 @@ public class Departamento implements ItemCadastro {
         return null;
     }
 
-    // Texto exibido nas listas de seleção.
     @Override
     public String toString() {
         return descricao;

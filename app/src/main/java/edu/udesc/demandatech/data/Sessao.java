@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import edu.udesc.demandatech.model.Perfil;
 import edu.udesc.demandatech.model.Usuario;
 
-// Guarda o usuário logado e o token entre as telas.
 public class Sessao {
 
     private static final String ARQUIVO = "sessao";
@@ -46,7 +45,6 @@ public class Sessao {
         return prefs.getString(TOKEN, null);
     }
 
-    // O backend renova o token a cada resposta; guardar o novo evita expirar no meio do uso.
     public void atualizarToken(String token) {
         if (estaLogado()) {
             prefs.edit().putString(TOKEN, token).apply();

@@ -3,11 +3,9 @@ package edu.udesc.demandatech.model;
 import java.util.List;
 
 public class VisaoGeral {
-
     public final int total;
     public final int abertas;
     public final int aguardando;
-    // Percentual de demandas resolvidas, de 0 a 100.
     public final double taxaResolucao;
     public final List<Demanda> recentes;
     public final List<ItemRelatorio> ranking;

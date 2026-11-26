@@ -1,6 +1,5 @@
 package edu.udesc.demandatech.model;
 
-// Mesmos valores do enum Status do backend.
 public enum Status {
     ABERTA("Aberta"),
     AGUARDANDO("Aguardando"),
@@ -17,12 +16,10 @@ public enum Status {
         return rotulo;
     }
 
-    // Resolvida e Cancelada encerram a demanda.
     public boolean isFinal() {
         return this == RESOLVIDA || this == CANCELADA;
     }
 
-    // O status só avança: Aberta, depois Aguardando, depois Resolvida ou Cancelada.
     public boolean podeAvancarPara(Status novo) {
         return !isFinal() && novo.ordinal() > ordinal();
     }

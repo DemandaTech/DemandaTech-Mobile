@@ -43,12 +43,10 @@ public class Demanda {
         return foiCriadaPor(usuario);
     }
 
-    // O estorno reverte um atendimento concluído, por isso exige a demanda resolvida.
     public boolean podeRegistrarEstorno(Usuario usuario) {
         return foiCriadaPor(usuario) && status == Status.RESOLVIDA;
     }
 
-    // O responsável avança o status enquanto a demanda não estiver encerrada.
     public boolean podeAlterarStatus(Usuario usuario) {
         return pertenceA(responsavel, usuario) && !status.isFinal();
     }

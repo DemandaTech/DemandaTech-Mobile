@@ -17,7 +17,6 @@ import edu.udesc.demandatech.model.Pagina;
 
 public class EstornoRepositoryApi implements EstornoRepository {
 
-    // Na tela o estorno aparece como EST-006; o backend busca pelo número puro.
     private static final Pattern CODIGO = Pattern.compile("(?i)^EST-?0*(\\d+)$");
 
     private final ApiCliente api;

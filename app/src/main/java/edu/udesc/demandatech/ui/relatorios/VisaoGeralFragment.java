@@ -26,11 +26,9 @@ import edu.udesc.demandatech.ui.PrincipalActivity;
 import edu.udesc.demandatech.ui.demandas.DetalheDemandaActivity;
 import edu.udesc.demandatech.ui.demandas.FormularioDemandaActivity;
 
-// Visão geral do Administrador (toda a operação) e do Gerente (o departamento dele).
 public class VisaoGeralFragment extends Fragment {
 
     private static final Locale BRASIL = new Locale("pt", "BR");
-    // Quantas linhas do ranking aparecem antes de tocar em "Ver todos".
     private static final int RANKING_RESUMIDO = 5;
 
     private RelatorioRepository repositorio;
@@ -76,14 +74,12 @@ public class VisaoGeralFragment extends Fragment {
                 startActivity(FormularioDemandaActivity.nova(requireContext())));
     }
 
-    // Recarrega ao voltar de uma demanda ou do formulário.
     @Override
     public void onResume() {
         super.onResume();
         carregar();
     }
 
-    // O Administrador acompanha os técnicos da TI; o Gerente, o próprio departamento.
     private void configurarTitulos() {
         boolean administrador = new Sessao(requireContext()).getUsuario().isAdministrador();
         TextView tvTitulo = raiz.findViewById(R.id.tvTituloRanking);

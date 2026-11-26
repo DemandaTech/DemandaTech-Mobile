@@ -24,15 +24,12 @@ import edu.udesc.demandatech.model.Demanda;
 import edu.udesc.demandatech.model.Estorno;
 import edu.udesc.demandatech.ui.Telas;
 
-// Uma tela só para registrar um estorno novo e para consultar ou editar um existente.
 public class EstornoActivity extends AppCompatActivity {
 
     private static final String ID_ESTORNO = "id_estorno";
     private static final String ID_DEMANDA = "id_demanda";
-
     private EstornoRepository repositorio;
     private int idEstorno;
-
     private MaterialToolbar barra;
     private TextInputLayout campoJustificativa;
     private TextInputEditText etJustificativa;
@@ -111,7 +108,6 @@ public class EstornoActivity extends AppCompatActivity {
         texto(R.id.tvRegistro, "Registrado em " + estorno.getData() + " por "
                 + estorno.getDemanda().getCriador().getNome());
 
-        // Quem não criou a demanda apenas consulta o estorno.
         boolean podeEditar = estorno.podeEditar(new Sessao(this).getUsuario());
         etJustificativa.setEnabled(podeEditar);
         btnSalvar.setText("Salvar alterações");
@@ -180,7 +176,6 @@ public class EstornoActivity extends AppCompatActivity {
         });
     }
 
-    // Fecha avisando a tela anterior de que a lista mudou.
     private void concluir() {
         setResult(RESULT_OK);
         finish();

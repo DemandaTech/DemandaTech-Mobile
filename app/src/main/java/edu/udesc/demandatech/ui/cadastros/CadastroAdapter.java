@@ -12,7 +12,6 @@ import edu.udesc.demandatech.model.ItemCadastro;
 import edu.udesc.demandatech.ui.Etiquetas;
 import edu.udesc.demandatech.ui.ListaPaginadaAdapter;
 
-// Um único adapter para funcionários, departamentos e tipos de demanda.
 public class CadastroAdapter extends ListaPaginadaAdapter<ItemCadastro> {
 
     public interface AoClicar {
@@ -46,7 +45,6 @@ public class CadastroAdapter extends ListaPaginadaAdapter<ItemCadastro> {
     }
 
     private static class Cartao extends RecyclerView.ViewHolder {
-
         final TextView tvTitulo;
         final TextView tvDetalhe;
         final TextView tvMarcador;

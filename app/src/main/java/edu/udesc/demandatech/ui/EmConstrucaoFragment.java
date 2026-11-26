@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 
 import edu.udesc.demandatech.R;
 
-// Ocupa as abas que ainda serão construídas.
 public class EmConstrucaoFragment extends Fragment {
 
     private static final String TITULO = "titulo";

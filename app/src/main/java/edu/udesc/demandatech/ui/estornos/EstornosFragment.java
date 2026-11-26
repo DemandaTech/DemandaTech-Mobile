@@ -26,7 +26,6 @@ import edu.udesc.demandatech.model.Estorno;
 import edu.udesc.demandatech.model.Pagina;
 import edu.udesc.demandatech.ui.Paginador;
 
-// Lista de estornos com busca e paginação pelo scroll.
 public class EstornosFragment extends Fragment implements Paginador.Tela<Estorno> {
 
     private static final String BUSCA = "busca";
@@ -38,7 +37,6 @@ public class EstornosFragment extends Fragment implements Paginador.Tela<Estorno
     private TextView tvTotal;
     private TextView tvEstado;
 
-    // A tela do estorno avisa com RESULT_OK quando algo mudou.
     private final ActivityResultLauncher<Intent> telaComRetorno = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(), retorno -> {
                 if (retorno.getResultCode() == Activity.RESULT_OK) {

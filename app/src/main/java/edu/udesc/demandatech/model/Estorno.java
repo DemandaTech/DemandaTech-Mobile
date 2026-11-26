@@ -16,12 +16,10 @@ public class Estorno {
         this.demanda = demanda;
     }
 
-    // O administrador e quem criou a demanda editam ou removem o estorno.
     public boolean podeEditar(Usuario usuario) {
         return usuario.isAdministrador() || demanda.foiCriadaPor(usuario);
     }
 
-    // Código exibido nas telas, como EST-006.
     public String getCodigo() {
         return String.format(Locale.ROOT, "EST-%03d", id);
     }

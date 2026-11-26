@@ -12,13 +12,10 @@ import java.util.List;
 
 import edu.udesc.demandatech.R;
 
-// Base das listas do app: cabeçalho, cartões e indicador de carregamento no fim.
 public abstract class ListaPaginadaAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     private static final int CABECALHO = 0;
     private static final int CARTAO = 1;
     private static final int CARREGANDO = 2;
-
     private final View cabecalho;
     private final List<T> itens = new ArrayList<>();
     private boolean carregando;
@@ -43,7 +40,6 @@ public abstract class ListaPaginadaAdapter<T> extends RecyclerView.Adapter<Recyc
         notifyItemRangeInserted(inicio, novos.size());
     }
 
-    // Mostra ou esconde o indicador no fim da lista.
     public void mostrarCarregando(boolean mostrar) {
         if (carregando == mostrar) {
             return;
@@ -91,14 +87,12 @@ public abstract class ListaPaginadaAdapter<T> extends RecyclerView.Adapter<Recyc
         }
     }
 
-    // O cabeçalho é uma única view reaproveitada; precisa estar solta antes de entrar na lista.
     private void soltar(View view) {
         if (view.getParent() instanceof ViewGroup) {
             ((ViewGroup) view.getParent()).removeView(view);
         }
     }
 
-    // Itens sem dados para preencher: cabeçalho e indicador de carregamento.
     private static class Fixo extends RecyclerView.ViewHolder {
 
         Fixo(View view) {

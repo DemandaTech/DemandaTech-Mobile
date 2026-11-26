@@ -1,7 +1,6 @@
 package edu.udesc.demandatech.model;
 
 public class ResumoDemandas {
-
     public final int total;
     public final int abertas;
     public final int aguardando;

@@ -12,13 +12,10 @@ import java.util.List;
 import edu.udesc.demandatech.R;
 import edu.udesc.demandatech.model.ItemRelatorio;
 
-// Monta as linhas com barra proporcional usadas na Visão geral e nos Relatórios.
 final class Barras {
 
-    private Barras() {
-    }
+    private Barras() {}
 
-    // Mostra até "limite" itens; a barra de cada um é proporcional ao maior valor.
     static void preencher(LinearLayout destino, List<ItemRelatorio> itens, int limite) {
         destino.removeAllViews();
         LayoutInflater inflater = LayoutInflater.from(destino.getContext());
@@ -36,7 +33,6 @@ final class Barras {
         }
     }
 
-    // Com "maior" igual a zero a linha vira só um aviso, sem valor nem barra.
     private static void adicionarLinha(LayoutInflater inflater, LinearLayout destino,
                                        ItemRelatorio item, int maior) {
         View linha = inflater.inflate(R.layout.item_barra, destino, false);

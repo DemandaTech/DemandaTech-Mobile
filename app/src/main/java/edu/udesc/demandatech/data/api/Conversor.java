@@ -19,7 +19,6 @@ import edu.udesc.demandatech.model.Status;
 import edu.udesc.demandatech.model.TipoDemanda;
 import edu.udesc.demandatech.model.Usuario;
 
-// Traduz o JSON do backend para os modelos usados pelas telas.
 final class Conversor {
 
     private static final Locale BRASIL = new Locale("pt", "BR");
@@ -29,8 +28,7 @@ final class Conversor {
         T converter(JSONObject json) throws JSONException;
     }
 
-    private Conversor() {
-    }
+    private Conversor() {}
 
     static <T> Pagina<T> pagina(String corpo, int numero, Item<T> item) throws JSONException {
         JSONObject json = new JSONObject(corpo);
@@ -154,7 +152,6 @@ final class Conversor {
         return json.isNull(campo) ? "" : json.optString(campo, "");
     }
 
-    // O backend usa o formato ISO (2026-11-13); as telas mostram 13/11/2026.
     private static String data(String iso) {
         if (iso.length() < 10) {
             return iso;

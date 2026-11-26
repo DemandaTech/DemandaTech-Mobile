@@ -11,7 +11,6 @@ import edu.udesc.demandatech.model.Status;
 import edu.udesc.demandatech.model.TipoDemanda;
 import edu.udesc.demandatech.model.Usuario;
 
-// O backend devolve apenas o que o perfil logado pode ver.
 public interface DemandaRepository {
 
     void listar(FiltroDemanda filtro, int pagina, Resultado<Pagina<Demanda>> resultado);
@@ -26,7 +25,6 @@ public interface DemandaRepository {
     void editar(int id, String titulo, String descricao, Prioridade prioridade, TipoDemanda tipo,
                 Resultado<Demanda> resultado);
 
-    // O status só avança. A justificativa é opcional e vale apenas para Resolvida.
     void alterarStatus(int id, Status status, String justificativa, Resultado<Demanda> resultado);
 
     void excluir(int id, Resultado<Void> resultado);
